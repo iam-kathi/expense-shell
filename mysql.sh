@@ -35,15 +35,15 @@ echo "Script started executing at: $(date)" | tee -a $LOG_FILE
 CHECK_ROOT
 
 dnf install mysql-server -y &>>$LOG_FILE
-VALIDATE $? "Installing MYSQL server"
+VALIDATE $? "Installing MySQL Server"
 
 systemctl enable mysqld &>>$LOG_FILE
-VALIDATE $? "Enabled MYSQL sserver"
+VALIDATE $? "Enabled MySQL Server"
 
 systemctl start mysqld &>>$LOG_FILE
-VALIDATE $? "Strarted MYSQL server"
+VALIDATE $? "Started MySQL server"
 
-mysql -h mysql.snigo.space -u root -pExpenseApp@1 -e 'show databases;' &>>$LOG_FILE
+mysql -h mysql.daws81s.online -u root -pExpenseApp@1 -e 'show databases;' &>>$LOG_FILE
 if [ $? -ne 0 ]
 then
     echo "MySQL root password is not setup, setting now" &>>$LOG_FILE
@@ -53,3 +53,6 @@ else
     echo -e "MySQL root password is already setup...$Y SKIPPING $N" | tee -a $LOG_FILE
 fi
 
+# Assignment
+# check MySQL Server is installed or not, enabled or not, started or not
+# implement the above things
